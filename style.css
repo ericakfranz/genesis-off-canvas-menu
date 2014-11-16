@@ -1,0 +1,250 @@
+html,
+body,
+.container,
+.site-container-wrap {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+ 
+body {
+    background-color: #000;
+}
+ 
+.site-container-wrap {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+    background-color: #fff;
+}
+ 
+.site-container {
+    position: relative;
+}
+ 
+.site-container::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0s 0.3s;
+    transition: opacity 0.3s, transform 0s 0.3s;
+    -webkit-transform: translate3d(100%,0,0);
+    transform: translate3d(100%,0,0);
+}
+ 
+/* Menu Button */
+button.menu-button {
+    position: fixed;
+    z-index: 1000;
+    margin: 0.25em;
+    padding: 0;
+    width: 2em;
+    height: 1.85em;
+    border: none;
+    font-size: 1.5em;
+    text-indent: 2.5em;
+    color: transparent;
+    background: transparent;
+}
+ 
+button.menu-button::before {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    bottom: 0.5em;
+    left: 0.5em;
+    /* Updated gradients to make as cross-browser-friendly as possible */
+    background: rgba(68,68,68,1);
+    background: -moz-linear-gradient(top, rgba(68,68,68,1) 0%, rgba(68,68,68,1) 20%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 40%, rgba(102,102,102,1) 40%, rgba(102,102,102,1) 60%, rgba(255,255,255,1) 60%, rgba(255,255,255,1) 80%, rgba(136,136,136,1) 80%, rgba(136,136,136,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(68,68,68,1)), color-stop(20%, rgba(68,68,68,1)), color-stop(20%, rgba(255,255,255,1)), color-stop(40%, rgba(255,255,255,1)), color-stop(40%, rgba(102,102,102,1)), color-stop(60%, rgba(102,102,102,1)), color-stop(60%, rgba(255,255,255,1)), color-stop(80%, rgba(255,255,255,1)), color-stop(80%, rgba(136,136,136,1)), color-stop(100%, rgba(136,136,136,1)));
+    background: -webkit-linear-gradient(top, rgba(68,68,68,1) 0%, rgba(68,68,68,1) 20%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 40%, rgba(102,102,102,1) 40%, rgba(102,102,102,1) 60%, rgba(255,255,255,1) 60%, rgba(255,255,255,1) 80%, rgba(136,136,136,1) 80%, rgba(136,136,136,1) 100%);
+    background: -o-linear-gradient(top, rgba(68,68,68,1) 0%, rgba(68,68,68,1) 20%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 40%, rgba(102,102,102,1) 40%, rgba(102,102,102,1) 60%, rgba(255,255,255,1) 60%, rgba(255,255,255,1) 80%, rgba(136,136,136,1) 80%, rgba(136,136,136,1) 100%);
+    background: -ms-linear-gradient(top, rgba(68,68,68,1) 0%, rgba(68,68,68,1) 20%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 40%, rgba(102,102,102,1) 40%, rgba(102,102,102,1) 60%, rgba(255,255,255,1) 60%, rgba(255,255,255,1) 80%, rgba(136,136,136,1) 80%, rgba(136,136,136,1) 100%);
+    background: linear-gradient(to bottom, rgba(68,68,68,1) 0%, rgba(68,68,68,1) 20%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 40%, rgba(102,102,102,1) 40%, rgba(102,102,102,1) 60%, rgba(255,255,255,1) 60%, rgba(255,255,255,1) 80%, rgba(136,136,136,1) 80%, rgba(136,136,136,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#444444', endColorstr='#888888', GradientType=0 );
+    content: '';
+}
+button.menu-button::hover {
+    opacity: 0.6;
+}
+ 
+/* Morph Shape */
+.morph-shape {
+    position: absolute;
+    height: 100%;
+    width: 120px;
+    top: 0;
+    right: 0;
+    fill: #222222;
+    z-index: 1000;
+}
+ 
+/* Elastic Wrap */
+.elastic-wrap {
+    position: absolute;
+    z-index: 1001;
+    width: 400px;
+    height: 100%;
+    font-size: 1.15em;
+    -webkit-transform: translate3d(-400px,0,0);
+    transform: translate3d(-400px,0,0);
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+    background-color: transparent;
+}
+ 
+.elastic-wrap a {
+    color: #dddddd;
+    font-size: 0.8em;
+    letter-spacing: 0.05em;
+    line-height: 1em;
+}
+.elastic-wrap a::hover {
+    color: #ffffff;
+    border-bottom: none;
+    text-decoration: none;
+}
+ 
+/* Elastic Widgets */
+.elastic-widget-wrap {
+    background-color: #222222;
+    width: 100%;
+    height: 100%;
+    padding-right: 130px; /* Prevent the widgets from running over into the morph shape /*
+}
+ 
+/* Elastic Menu */
+.elastic-wrap .menu {
+    height: 100%;
+    overflow: hidden;
+}
+.elastic-wrap .menu li {
+    width: 380px;
+}
+.elastic-wrap menu li a {
+    display: block;
+    padding: 0.8em;
+    text-transform: lowercase;
+}
+.elastic-wrap menu li a i { /* Allowances for icons if used before menu item text */
+    opacity: 0.5;
+    margin-right: 10px;
+    text-align: center;
+    min-width: 15px; /* Account for varying widths of icons and set them to display centered with one another */
+}
+.elastic-wrap .menu .sub-menu a {
+    font-size: 0.67em;
+    margin-left: 25px;
+}
+ 
+/* Elastic Widget Sections */
+.elastic-wrap section {
+    padding: 2em 0 2em 1em;
+    background-color: #222222;
+    color: #ffffff;
+}
+.elastic-wrap section:not(.widget_nav_menu) {
+    padding: 1em 0 2em 1em;
+}
+.elastic-wrap section .widget-title,
+.elastic-wrap section .widgettitle, {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1em;
+    line-height: 2.5em;
+    letter-spacing: 1px;
+}
+.elastic-wrap section p {
+    font-size: 0.76em;
+    line-height: 1.5em;
+    font-weight: 300;
+    margin-bottom: 1em;
+}
+ 
+/* Close Button */
+.elastic-wrap .close-button {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    overflow: hidden;
+    text-indent: 16px;
+    border: none;
+    z-index: 1001;
+    color: transparent;
+    background: transparent;
+}
+.elastic-wrap .close-button::before,
+.elastic-wrap .clsoe-button::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    background: #dddddd;
+}
+.elastic-wrap .close-button::hover {
+    background: transparent;
+}
+.elastic-wrap .close-button::hover::before,
+.elastic-wrap .close-button::hover::after {
+    background: #ffffff;
+}
+.elastic-wrap .close-button::before {
+    -webkit-transform: rotate( 45deg );
+    transform: rotate( 45deg );
+}
+.elastic-wrap .close-button::after {
+    -webkit-transform: rotate( -45deg );
+    transform: rotate( -45deg );
+}
+ 
+/* Shown Menu */
+.show-menu .elastic-wrap {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    width: 100%;
+    overflow: scroll;
+}
+ 
+.show-menu .site-container-wrap {
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+    -webkit-transform: translate3d(330px,0,0);
+    transform: translate3d(330px,0,0);
+    opacity: 0.2;
+}
+ 
+.show-menu .site-container::before {
+    opacity: 1;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+/* Assistive Text */
+.assistive-text {
+    position: absolute;
+    margin-left: -9999999%;
+}
+ 
+@media all and min-width(55em) {
+    .elastic-widget-wrap {
+        width: 280px;
+        padding-right: 0;
+    }
+    .show-menu .elastic-wrap {
+        width: 400px;
+        overflow: hidden;
+    }
+}
